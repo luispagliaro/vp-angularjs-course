@@ -8,12 +8,12 @@
 
 <body ng-controller="StoreController as store">
   {{ "Hello, Angular!" }}
-  <div class="product" ng-hide="store.product.soldOut">
-    <h3>{{ store.product.name }}</h3>
-    <em>{{ store.product.price }}</em>
+  <div class="product row" ng-hide="product.soldOut" ng-repeat="product in store.products">
+    <h3>{{ product.name }}</h3>
+    <em>{{ product.price }}</em>
     <br/>
     <br/>
-    <button ng-show="store.product.canPurchase">Add to Cart</button>
+    <button ng-show="product.canPurchase">Add to Cart</button>
   </div>
 </body>
 
