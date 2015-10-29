@@ -2,12 +2,18 @@
 
 <head>
   <title>Gem Store</title>
-  <script src="angular.min.js"></script>
-  <script src="app.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/StoreController.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body ng-controller="StoreController as store">
-  {{ "Hello, Angular!" }}
+<body class="container" ng-controller="StoreController as store">
+  <div class="row">
+    {{ "Hello, Angular!" }}
+  </div>
   <div class="product row" ng-hide="product.soldOut" ng-repeat="product in store.products">
     <h3>{{ product.name }}</h3>
     <em>{{ product.price }}</em>
