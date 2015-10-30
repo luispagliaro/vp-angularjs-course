@@ -19,6 +19,9 @@
     <em>{{ product.price | currency}}</em>
     <br/>
     <br/>
+    <img ng-src="images/{{ product.images[0] }}">
+    <br/>
+    <br/>
     <button ng-show="product.canPurchase">Add to Cart</button>
   </div>
 </body>
