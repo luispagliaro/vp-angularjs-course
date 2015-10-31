@@ -17,7 +17,7 @@
         <em>{{ product.price | currency}}</em>
         <br/>
         <br/>
-        <img ng-src="images/{{ image }}" ng-repeat="image in product.images">
+        <img ng-src="images/{{ image }}" ng-show="product.images != []" ng-repeat="image in product.images">
         <br/>
         <br/>
         <button ng-show="product.canPurchase">Add to Cart</button>

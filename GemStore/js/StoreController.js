@@ -8,7 +8,7 @@
     price: 2.95,
     canPurchase: true,
     soldOut: false,
-    images: ['01-Azurite.png', '02-Azurite.png', '03-Azurite.png']
+    images: [] /*['01-Azurite.png', '02-Azurite.png', '03-Azurite.png']*/
   }, {
     name: 'Bloodstone',
     price: 5.95,
