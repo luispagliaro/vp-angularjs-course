@@ -1,14 +1,14 @@
 (function() {
   angular
     .module('gemStore')
-    .controller('StoreController', Store);
+    .controller('StoreController', StoreController);
 
   var gems = [{
     name: 'Azurite',
     price: 2.95,
     canPurchase: true,
     soldOut: false,
-    images: [] /*['01-Azurite.png', '02-Azurite.png', '03-Azurite.png']*/
+    images: ['01-Azurite.png', '02-Azurite.png', '03-Azurite.png']
   }, {
     name: 'Bloodstone',
     price: 5.95,
@@ -23,7 +23,7 @@
     images: ['01-Zircon.jpg', '02-Zircon.jpg']
   }];
 
-  function Store() {
+  function StoreController() {
     var vm = this;
 
     vm.products = gems;
