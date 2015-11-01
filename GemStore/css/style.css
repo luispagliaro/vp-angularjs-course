@@ -1,0 +1,24 @@
+.panel-body {
+  padding: 0px 15px;
+}
+
+.page-header {
+  padding-bottom: 20px;
+  margin-top: 10px;
+}
+
+.list-group-item {
+  padding-bottom: 20px;
+}
+
+.panel-body li:last-child {
+  border-bottom: none;
+}
+
+.gallery img {
+	width: 50px;
+}
+
+.gallery img:first-child {
+	width: initial;
+}
