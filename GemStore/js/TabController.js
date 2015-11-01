@@ -11,7 +11,7 @@
     vm.setTab = setTab;
 
     function isSet(value) {
-      return vm.tab === value ? true : false;
+      return vm.tab === value;
     };
 
     function setTab(value) {

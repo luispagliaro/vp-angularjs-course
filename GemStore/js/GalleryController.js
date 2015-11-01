@@ -10,7 +10,7 @@
 		vm.setCurrent = setCurrent;
 
 		function setCurrent(value) {
-			value ? vm.current = 0 : vm.current = value;
+			vm.current = value || 0;
 		};
 	}
 })();

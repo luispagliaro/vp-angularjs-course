@@ -15,10 +15,6 @@
   border-bottom: none;
 }
 
-.gallery img {
+.small-image {
 	width: 50px;
-}
-
-.gallery img:first-child {
-	width: initial;
 }

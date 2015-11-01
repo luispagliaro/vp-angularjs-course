@@ -21,26 +21,22 @@
     <ul class="panel-body list-group text-center">
       <li class="product row list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
         <h3 class="page-header">{{ product.name }} <em class="small">{{ product.price | currency}}</em></h3>
-        <div class="gallery" ng-show="product.images != []">
-          <img ng-src="images/{{ product.images[0] }}">
+        <div class="gallery" ng-show="product.images != []" ng-controller="GalleryController as gallery">
+          <img ng-src="images/{{ product.images[gallery.current] }}">
           <div>
-            <img ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$first">
+            <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current" >
           </div>
           <section class="tab text-center" ng-controller="TabController as tab">
-            <ul class="nav nav-pills">
-              <li ng-class="{active:setTab(1)}">
+            <ul class="nav nav-tabs">
+              <li class="active" ng-class="{active:tab.isSet(1)}">
                 <a href ng-click="tab.setTab(1)">Description</a>
               </li>
-              <li ng-class="{active:setTab(2)}">
+              <li ng-class="{active:tab.isSet(2)}">
                 <a href ng-click="tab.setTab(2)">Specs</a>
               </li>
             </ul>
-            <div ng-show="tab.isSet(1)">
-              <blockquote>{{ product.description }}</blockquote>
-            </div>
-            <div ng-show="tab.isSet(2)">
-              <blockquote>Shine: {{ product.shine }}</blockquote>
-            </div>
+            <div class="well" ng-show="tab.isSet(1)">{{ product.description }}</div>
+            <div class="well" ng-show="tab.isSet(2)">Shine: {{ product.shine }}</div>
           </section>
         </div>
         <button class="btn btn-success" type="button" ng-show="product.canPurchase">Add to Cart</button>
