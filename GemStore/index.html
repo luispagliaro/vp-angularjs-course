@@ -21,7 +21,7 @@
     <ul class="panel-body list-group text-center">
       <li class="product row list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
         <h3 class="page-header">{{ product.name }} <em class="small">{{ product.price | currency}}</em></h3>
-        <figure class="gallery" ng-show="product.images != []" ng-controller="GalleryController as gallery">
+        <figure class="gallery" ng-if="product.images != []" ng-controller="GalleryController as gallery">
           <img ng-src="images/{{ product.images[gallery.current] }}">
           <div>
             <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current" ng-click="gallery.setCurrent($index)">
