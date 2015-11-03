@@ -40,3 +40,8 @@ img {
 	margin: 5px;
 	border: 1px solid gainsboro;
 }
+
+.well {
+	border-top: none;
+	border-radius: 4px 0;
+}
