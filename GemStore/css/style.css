@@ -1,10 +1,27 @@
+h1 {
+	margin-bottom: 20px
+}
+
+.panel {
+	margin-bottom: 0;
+}
+
 .panel-body {
-  padding: 0px 15px;
+  padding: 0 15px;
 }
 
 .page-header {
   padding-bottom: 20px;
   margin-top: 10px;
+}
+
+.tab {
+	margin-top: 15px
+}
+
+.panel-footer {
+	background-color: #337ab7;
+	color: white;
 }
 
 .list-group-item {
@@ -17,4 +34,9 @@
 
 .small-image {
 	width: 50px;
+}
+
+img {
+	margin: 5px;
+	border: 1px solid gainsboro;
 }

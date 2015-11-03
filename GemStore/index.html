@@ -14,36 +14,36 @@
 </head>
 
 <body class="container" ng-controller="StoreController as store">
-  <div class="panel panel-success">
+  <main class="panel panel-primary">
     <header class="panel-heading">
       <h1 class="text-center">Gem Store</h1>
     </header>
     <ul class="panel-body list-group text-center">
       <li class="product row list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
         <h3 class="page-header">{{ product.name }} <em class="small">{{ product.price | currency}}</em></h3>
-        <div class="gallery" ng-show="product.images != []" ng-controller="GalleryController as gallery">
+        <figure class="gallery" ng-show="product.images != []" ng-controller="GalleryController as gallery">
           <img ng-src="images/{{ product.images[gallery.current] }}">
           <div>
-            <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current" >
+            <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current">
           </div>
-          <section class="tab text-center" ng-controller="TabController as tab">
-            <ul class="nav nav-tabs">
-              <li class="active" ng-class="{active:tab.isSet(1)}">
-                <a href ng-click="tab.setTab(1)">Description</a>
-              </li>
-              <li ng-class="{active:tab.isSet(2)}">
-                <a href ng-click="tab.setTab(2)">Specs</a>
-              </li>
-            </ul>
-            <div class="well" ng-show="tab.isSet(1)">{{ product.description }}</div>
-            <div class="well" ng-show="tab.isSet(2)">Shine: {{ product.shine }}</div>
-          </section>
-        </div>
+        </figure>
+        <section class="tab text-center" ng-controller="TabController as tab">
+          <ul class="nav nav-tabs">
+            <li class="active" ng-class="{active:tab.isSet(1)}">
+              <a href ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{active:tab.isSet(2)}">
+              <a href ng-click="tab.setTab(2)">Specs</a>
+            </li>
+          </ul>
+          <div class="well" ng-show="tab.isSet(1)">{{ product.description }}</div>
+          <div class="well" ng-show="tab.isSet(2)">Shine: {{ product.shine }}</div>
+        </section>
         <button class="btn btn-success" type="button" ng-show="product.canPurchase">Add to Cart</button>
       </li>
     </ul>
-    <footer class="panel-footer panel-success text-center">Gem Store. Developed by Luis Pagliaro.</footer>
-  </div>
+    <footer class="panel-footer panel-primary text-center">Gem Store. Developed by Luis Pagliaro.</footer>
+  </main>
 </body>
 
 </html>
