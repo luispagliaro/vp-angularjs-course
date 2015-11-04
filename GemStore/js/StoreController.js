@@ -2,32 +2,66 @@
   angular
     .module('gemStore')
     .controller('StoreController', StoreController);
-
-  var gems = [{
-    name: 'Azurite',
-    description: 'Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.',
-    price: 110.50,
-    canPurchase: true,
-    soldOut: false,
-    images: ['Azurite_1.gif', 'Azurite_2.gif', 'Azurite_3.gif'],
-    shine: 8
-  }, {
-    name: 'Bloodstone',
-    description: 'Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.',
-    price: 22.90,
-    canPurchase: false,
-    soldOut: false,
-    images: ['Bloodstone_1.gif', 'Bloodstone_2.gif', 'Bloodstone_3.gif'],
-    shine: 9
-  }, {
-    name: 'Zircon',
-    description: 'Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.',
-    price: 1100,
-    canPurchase: true,
-    soldOut: false,
-    images: ['Zircon_1.gif', 'Zircon_2.gif', 'Zircon_3.gif'],
-    shine: 70
-  }];
+  
+    var gems = [{
+      name: 'Azurite',
+      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+      shine: 8,
+      price: 110.50,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
+      images: ['Azurite_1.gif', 'Azurite_2.gif', 'Azurite_3.gif'],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org"
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org"
+      }]
+    }, {
+      name: 'Bloodstone',
+      description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+      shine: 9,
+      price: 22.90,
+      rarity: 6,
+      color: '#EEE',
+      faces: 12,
+      images: ['Bloodstone_1.gif', 'Bloodstone_2.gif', 'Bloodstone_3.gif'],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org"
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org"
+      }]
+    }, {
+      name: 'Zircon',
+      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+      shine: 70,
+      price: 1100,
+      rarity: 2,
+      color: '#000',
+      faces: 6,
+      images: ['Zircon_1.gif', 'Zircon_2.gif', 'Zircon_3.gif'],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org"
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org"
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org"
+      }]
+    }];
 
   function StoreController() {
     var vm = this;

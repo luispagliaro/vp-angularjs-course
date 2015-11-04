@@ -35,9 +35,25 @@
             <li ng-class="{active:tab.isSet(2)}">
               <a href ng-click="tab.setTab(2)">Specs</a>
             </li>
+            <li ng-class="{active:tab.isSet(3)}">
+              <a href ng-click="tab.setTab(3)">Reviews</a>
+            </li>
           </ul>
-          <div class="well" ng-show="tab.isSet(1)">{{ product.description }}</div>
-          <div class="well" ng-show="tab.isSet(2)">Shine: {{ product.shine }}</div>
+          <div class="well">
+            <span ng-show="tab.isSet(1)">{{ product.description }}</span>
+            <span ng-show="tab.isSet(2)">Shine: {{ product.shine }}</span>
+            <span ng-show="tab.isSet(3)">
+              <ul>
+                <li ng-repeat="review in product.reviews">
+                  <blockquote>
+                    <strong>{{ review.stars }} stars</strong>
+                    {{ review.body }}
+                    <cite>{{ review.author }}</cite>
+                </blockquote>
+                </li>
+              </ul>
+            </span>
+          </div>
         </section>
         <button class="btn btn-success" type="button" ng-show="product.canPurchase">Add to Cart</button>
       </li>
