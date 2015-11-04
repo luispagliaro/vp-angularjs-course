@@ -40,19 +40,59 @@
             </li>
           </ul>
           <div class="well">
-            <span ng-show="tab.isSet(1)">{{ product.description }}</span>
-            <span ng-show="tab.isSet(2)">Shine: {{ product.shine }}</span>
-            <span ng-show="tab.isSet(3)">
-              <ul>
+            <strong ng-show="tab.isSet(1)">{{ product.description }}</strong>
+            <blockquote class="text-left" ng-show="tab.isSet(2)">
+              <dl class="dl-horizontal">
+                <dt>Shine</dt>
+                <dd>{{ product.shine }}</dd>
+                <dt>Rarity</dt>
+                <dd>{{ product.rarity }}</dd>
+                <dt>Color</dt>
+                <dd>{{ product.color }}</dd>
+                <dt>Faces</dt>
+                <dd>{{ product.faces }}</dd>
+              </dl>
+            </blockquote>
+            <div ng-show="tab.isSet(3)">
+              <form name="reviewForm" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputStars" class="col-sm-5 control-label">Stars</label>
+                  <div class="col-sm-3">
+                    <select class="form-control">
+                      <option ng-value="1">1</option>
+                      <option ng-value="2">2</option>
+                      <option ng-value="3">3</option>
+                      <option ng-value="4">4</option>
+                      <option ng-value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputComment" class="col-sm-5 control-label">Comment</label>
+                  <div class="col-sm-3">
+                    <textarea class="form-control" rows="4" placeholder="Enter a comment"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-sm-5 control-label">Email</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <ul class="reviews">
                 <li ng-repeat="review in product.reviews">
-                  <blockquote>
-                    <strong>{{ review.stars }} stars</strong>
-                    {{ review.body }}
-                    <cite>{{ review.author }}</cite>
-                </blockquote>
+                  <blockquote class="text-left">
+                    <p>{{ review.body }}</p>
+                    <div class="text-right">
+                      <strong>{{ review.stars }} stars</strong> -
+                      <cite>{{ review.author }}</cite>
+                    </div>
+                  </blockquote>
                 </li>
               </ul>
-            </span>
+            </div>
           </div>
         </section>
         <button class="btn btn-success" type="button" ng-show="product.canPurchase">Add to Cart</button>
