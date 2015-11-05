@@ -55,38 +55,33 @@
               </dl>
             </blockquote>
             <div ng-show="tab.isSet(3)">
-              <form name="reviewForm" class="form-horizontal" novalidate>
+              <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)" novalidate>
                 <div class="form-group">
                   <label for="inputStars" class="col-sm-5 control-label">Stars</label>
                   <div class="col-sm-3">
-                    <select class="form-control" name="stars" ng-model="review.stars" required>
+                    <select class="form-control" name="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars" required>
                       <option value="" disabled selected>Rate the gem</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputComment" class="col-sm-5 control-label">Comment</label>
                   <div class="col-sm-3">
-                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-model="review.comment" required></textarea>
+                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-model="reviewCtrl.review.body" required></textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail" class="col-sm-5 control-label">Email</label>
                   <div class="col-sm-3">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email" name="email" ng-model="review.email" required>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email" name="email" ng-model="reviewCtrl.review.author" required>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 <blockquote class="text-left" ng-show="(reviewForm.comment.$dirty && reviewForm.comment.$valid) || (reviewForm.stars.$dirty && reviewForm.stars.$valid) || (reviewForm.email.$dirty && reviewForm.email.$valid)">
-                  <p>{{ review.comment }}</p>
+                  <p>{{ reviewCtrl.review.body }}</p>
                   <div class="text-right">
-                    <strong ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid">{{ review.stars }} stars</strong><span ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid && reviewForm.email.$dirty && reviewForm.email.$valid"> - </span>
-                    <cite>{{ review.email }}</cite>
+                    <strong ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid">{{ reviewCtrl.review.stars }} stars</strong><span ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid && reviewForm.email.$dirty && reviewForm.email.$valid"> - </span>
+                    <cite>{{ reviewCtrl.review.author }}</cite>
                   </div>
                 </blockquote>
               </form>
