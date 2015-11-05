@@ -4,7 +4,7 @@
 		.controller('ReviewController', ReviewController);
 
 		function ReviewController() {
-			var this.vm = this;
+			var vm = this;
 
 			vm.review = {};
 			vm.addReview = addReview
