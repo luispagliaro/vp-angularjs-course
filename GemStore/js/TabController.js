@@ -12,10 +12,10 @@
 
     function isSet(value) {
       return vm.tab === value;
-    };
+    }
 
     function setTab(value) {
       vm.tab = value;
-    };
+    }
   }
 })();

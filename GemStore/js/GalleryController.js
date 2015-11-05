@@ -11,6 +11,6 @@
 
 		function setCurrent(value) {
 			vm.current = value || 0;
-		};
+		}
 	}
 })();
