@@ -84,7 +84,7 @@
                   <small><time>{{ reviewCtrl.getDate() | date }}</time></small>
                   <p ng-show="reviewForm.comment.$valid">{{ reviewCtrl.review.body }}</p>
                   <div class="text-right">
-                    <strong ng-show="reviewForm.stars.$valid">{{ reviewCtrl.review.stars }} stars</strong><span ng-show="reviewForm.stars.$valid && reviewForm.email.$valid"> - </span>
+                    <strong ng-show="reviewForm.stars.$valid">{{ reviewCtrl.review.stars }} star<span ng-hide="reviewCtrl.review.stars == 1">s</span></strong><span ng-show="reviewForm.stars.$valid && reviewForm.email.$valid"> - </span>
                     <cite>{{ reviewCtrl.review.author }}</cite>
                   </div>
                 </blockquote>
@@ -95,7 +95,7 @@
                     <small><time>{{ review.createdOn | date }}</time></small>
                     <p>{{ review.body }}</p>
                     <div class="text-right">
-                      <strong>{{ review.stars }} stars</strong> -
+                      <strong>{{ review.stars }} star<span ng-hide="review.stars == 1">s</span></strong> -
                       <cite>{{ review.author }}</cite>
                     </div>
                   </blockquote>

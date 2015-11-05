@@ -58,7 +58,7 @@
         author: "turtleguyy@example.org",
         createdOn: 1397490980837
       }, {
-        stars: 1,
+        stars: 2,
         body: "BBW: High Shine != High Quality.",
         author: "LouisW407@example.org",
         createdOn: 1397490980837
