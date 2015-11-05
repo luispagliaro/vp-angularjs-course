@@ -1,28 +1,29 @@
 (function() {
-	angular
-		.module('gemStore')
-		.controller('ReviewController', ReviewController);
+  angular
+    .module('gemStore')
+    .controller('ReviewController', ReviewController);
 
-		function ReviewController() {
-			var vm = this;
+  function ReviewController() {
+    var vm = this;
 
-			vm.review = {};
-			vm.addReview = addReview;
-			vm.getDate = getDate;
+    vm.addReview = addReview;
+    vm.resetReview = resetReview;
 
-			function addReview(product, form) {
-				vm.review.createdOn = vm.getDate();
+    function addReview(product) {
+      vm.review.createdOn = Date.now();
 
-				product.reviews.push(vm.review);
+      product.reviews.push(vm.review);
 
-				vm.review = {};
+      vm.review = {};
 
-				form.$setPristine();
-				form.$setUntouched();
-			}
+      return true;
+    }
 
-			function getDate() {
-				return Date.now();
-			}
-		}
+    function resetReview() {
+      vm.review = {};
+      vm.review.createdOn = Date.now();
+    }
+
+    resetReview();
+  }
 })();

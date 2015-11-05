@@ -55,7 +55,7 @@
               </dl>
             </blockquote>
             <div ng-show="tab.isSet(3)">
-              <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product, reviewForm)" novalidate>
+              <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product) && reviewForm.$setPristine() && reviewForm.$setUntouched()" novalidate>
                 <div class="form-group" ng-class="{'has-success':reviewForm.stars.$valid,'has-error':reviewForm.stars.$dirty && reviewForm.stars.$invalid}">
                   <label for="inputStars" class="col-sm-5 control-label">Stars</label>
                   <div class="col-sm-3">
@@ -81,7 +81,7 @@
                 <small class="text-danger" ng-show="reviewForm.email.$dirty && reviewForm.email.$invalid">Please, verify your email address</small>
                 <button type="submit" class="btn btn-default" ng-disabled="reviewForm.$invalid">Submit</button>
                 <blockquote class="text-left" ng-show="(reviewForm.comment.$valid || reviewForm.stars.$valid || reviewForm.email.$valid)">
-                  <small><time>{{ reviewCtrl.getDate() | date }}</time></small>
+                  <small><time>{{ reviewCtrl.review.createdOn | date }}</time></small>
                   <p ng-show="reviewForm.comment.$valid">{{ reviewCtrl.review.body }}</p>
                   <div class="text-right">
                     <strong ng-show="reviewForm.stars.$valid">{{ reviewCtrl.review.stars }} star<span ng-hide="reviewCtrl.review.stars == 1">s</span></strong><span ng-show="reviewForm.stars.$valid && reviewForm.email.$valid"> - </span>
