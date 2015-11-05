@@ -55,3 +55,8 @@ img {
 textarea {
   resize: none;
 }
+
+small.text-danger {
+  display: block;
+  margin: 15px 0;
+}
