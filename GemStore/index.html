@@ -58,7 +58,7 @@
                 <div class="form-group">
                   <label for="inputStars" class="col-sm-5 control-label">Stars</label>
                   <div class="col-sm-3">
-                    <select class="form-control" name="stars" ng-model="review.stars">
+                    <select class="form-control" name="stars" ng-model="review.stars" required>
                       <option value="" disabled selected>Rate the gem</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -71,20 +71,20 @@
                 <div class="form-group">
                   <label for="inputComment" class="col-sm-5 control-label">Comment</label>
                   <div class="col-sm-3">
-                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-model="review.comment"></textarea>
+                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-model="review.comment" required></textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail" class="col-sm-5 control-label">Email</label>
                   <div class="col-sm-3">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email" name="email" ng-model="review.email">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your Email" name="email" ng-model="review.email" required>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 <blockquote class="text-left" ng-show="(reviewForm.comment.$dirty && reviewForm.comment.$valid) || (reviewForm.stars.$dirty && reviewForm.stars.$valid) || (reviewForm.email.$dirty && reviewForm.email.$valid)">
                   <p>{{ review.comment }}</p>
                   <div class="text-right">
-                    <strong>{{ review.stars }}</strong> -
+                    <strong ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid">{{ review.stars }} stars</strong><span ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid && reviewForm.email.$dirty && reviewForm.email.$valid"> - </span>
                     <cite>{{ review.email }}</cite>
                   </div>
                 </blockquote>
