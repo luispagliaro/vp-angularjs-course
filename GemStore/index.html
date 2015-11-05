@@ -55,7 +55,7 @@
               </dl>
             </blockquote>
             <div ng-show="tab.isSet(3)">
-              <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)" novalidate>
+              <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                 <div class="form-group">
                   <label for="inputStars" class="col-sm-5 control-label">Stars</label>
                   <div class="col-sm-3">
@@ -67,7 +67,7 @@
                 <div class="form-group">
                   <label for="inputComment" class="col-sm-5 control-label">Comment</label>
                   <div class="col-sm-3">
-                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-model="reviewCtrl.review.body" required></textarea>
+                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-minlength="1" ng-model="reviewCtrl.review.body" required></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -78,7 +78,7 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 <blockquote class="text-left" ng-show="(reviewForm.comment.$dirty && reviewForm.comment.$valid) || (reviewForm.stars.$dirty && reviewForm.stars.$valid) || (reviewForm.email.$dirty && reviewForm.email.$valid)">
-                  <p>{{ reviewCtrl.review.body }}</p>
+                  <p ng-show="reviewForm.comment.$dirty && reviewForm.comment.$valid">{{ reviewCtrl.review.body }}</p>
                   <div class="text-right">
                     <strong ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid">{{ reviewCtrl.review.stars }} stars</strong><span ng-show="reviewForm.stars.$dirty && reviewForm.stars.$valid && reviewForm.email.$dirty && reviewForm.email.$valid"> - </span>
                     <cite>{{ reviewCtrl.review.author }}</cite>
