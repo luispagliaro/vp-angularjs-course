@@ -60,3 +60,11 @@ small.text-danger {
   display: block;
   margin: 15px 0;
 }
+
+.product-specs li {
+  width: 24%;
+}
+
+.product-reviews p {
+  word-wrap: break-word;
+}

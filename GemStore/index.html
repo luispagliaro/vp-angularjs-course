@@ -41,45 +41,46 @@
             </li>
           </ul>
           <div class="well">
-            <strong ng-show="tab.isSet(1)">{{ product.description }}</strong>
-            <blockquote class="text-left" ng-show="tab.isSet(2)">
-              <dl class="dl-horizontal">
-                <dt>Shine</dt>
-                <dd>{{ product.shine }}</dd>
-                <dt>Rarity</dt>
-                <dd>{{ product.rarity }}</dd>
-                <dt>Color</dt>
-                <dd>{{ product.color }}</dd>
-                <dt>Faces</dt>
-                <dd>{{ product.faces }}</dd>
-              </dl>
-            </blockquote>
-            <div ng-show="tab.isSet(3)">
+            <div ng-show="tab.isSet(1)" class="product-description">
+              <strong>{{ product.description }}</strong>
+            </div>
+            <div ng-show="tab.isSet(2)" class="product-specs">
+              <ul class="list-inline row">
+                <li class="col-sm-3"><strong>Shine</strong>: {{ product.shine }}</li>
+                <li class="col-sm-3"><strong>Rarity</strong>: {{ product.rarity }}</li>
+                <li class="col-sm-3"><strong>Color</strong>: <span ng-style="{color:'{{ product.color }}'}">{{ product.color }}</span></li>
+                <li class="col-sm-3"><strong>Faces</strong>: {{ product.faces }}</li>
+              </ul>
+            </div>
+            <div ng-show="tab.isSet(3)" class="product-reviews">
               <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product) && reviewForm.$setPristine() && reviewForm.$setUntouched()" novalidate>
-                <div class="form-group" ng-class="{'has-success':reviewForm.stars.$valid,'has-error':reviewForm.stars.$dirty && reviewForm.stars.$invalid}">
-                  <label for="inputStars" class="col-sm-5 control-label">Stars</label>
-                  <div class="col-sm-3">
-                    <select class="form-control" name="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars" required>
-                      <option value="" disabled selected>Rate the gem</option>
-                    </select>
+                <fieldset>
+                  <legend>Add a review</legend>
+                  <div class="form-group row" ng-class="{'has-success':reviewForm.stars.$valid,'has-error':reviewForm.stars.$dirty && reviewForm.stars.$invalid}">
+                    <label for="inputStars" class="col-sm-5 control-label">Stars</label>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars" required>
+                        <option value="" disabled selected>Rate the gem</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <small class="text-danger" ng-show="reviewForm.stars.$dirty && reviewForm.stars.$invalid">Please, rate the gem before submitting the review</small>
-                <div class="form-group" ng-class="{'has-success':reviewForm.comment.$valid,'has-error':reviewForm.comment.$dirty && reviewForm.comment.$invalid}">
-                  <label for="inputComment" class="col-sm-5 control-label">Comment</label>
-                  <div class="col-sm-3">
-                    <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-minlength="1" ng-model="reviewCtrl.review.body" required></textarea>
+                  <small class="text-danger" ng-show="reviewForm.stars.$dirty && reviewForm.stars.$invalid">Please, rate the gem before submitting the review</small>
+                  <div class="form-group row" ng-class="{'has-success':reviewForm.comment.$valid,'has-error':reviewForm.comment.$dirty && reviewForm.comment.$invalid}">
+                    <label for="inputComment" class="col-sm-5 control-label">Comment</label>
+                    <div class="col-sm-3">
+                      <textarea class="form-control" rows="4" placeholder="Enter a comment" name="comment" ng-minlength="1" ng-model="reviewCtrl.review.body" required></textarea>
+                    </div>
                   </div>
-                </div>
-                <small class="text-danger" ng-show="reviewForm.comment.$dirty && reviewForm.comment.$invalid">Please, write a comment before submitting the review</small>
-                <div class="form-group" ng-class="{'has-success':reviewForm.email.$valid,'has-error':reviewForm.email.$dirty && reviewForm.email.$invalid}">
-                  <label for="inputEmail" class="col-sm-5 control-label">Email</label>
-                  <div class="col-sm-3">
-                    <input type="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="reviewCtrl.review.author" required>
+                  <small class="text-danger" ng-show="reviewForm.comment.$dirty && reviewForm.comment.$invalid">Please, write a comment before submitting the review</small>
+                  <div class="form-group row" ng-class="{'has-success':reviewForm.email.$valid,'has-error':reviewForm.email.$dirty && reviewForm.email.$invalid}">
+                    <label for="inputEmail" class="col-sm-5 control-label">Email</label>
+                    <div class="col-sm-3">
+                      <input type="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="reviewCtrl.review.author" required>
+                    </div>
                   </div>
-                </div>
-                <small class="text-danger" ng-show="reviewForm.email.$dirty && reviewForm.email.$invalid">Please, verify your email address</small>
-                <button type="submit" class="btn btn-default" ng-disabled="reviewForm.$invalid">Submit</button>
+                  <small class="text-danger" ng-show="reviewForm.email.$dirty && reviewForm.email.$invalid">Please, verify your email address</small>
+                  <button type="submit" class="btn btn-default" ng-disabled="reviewForm.$invalid">Submit</button>
+                </fieldset>
                 <blockquote class="text-left" ng-show="(reviewForm.comment.$valid || reviewForm.stars.$valid || reviewForm.email.$valid)">
                   <small><time>{{ reviewCtrl.review.createdOn | date }}</time></small>
                   <p ng-show="reviewForm.comment.$valid">{{ reviewCtrl.review.body }}</p>
