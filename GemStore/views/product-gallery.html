@@ -1,0 +1,6 @@
+<figure class="gallery" ng-if="product.images != []">
+  <img ng-src="images/{{ product.images[gallery.current] }}">
+  <div>
+    <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current" ng-click="gallery.setCurrent($index)">
+  </div>
+</figure>

@@ -7,8 +7,8 @@
   <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/StoreController.js"></script>
-  <script src="scripts/controllers/GalleryController.js"></script>
   <script src="scripts/controllers/ReviewController.js"></script>
+  <script src="scripts/directives/productGallery.js"></script>
   <script src="scripts/directives/productDescription.js"></script>
   <script src="scripts/directives/productSpecification.js"></script>
   <script src="scripts/directives/productTabs.js"></script>
@@ -24,12 +24,7 @@
     <ul class="panel-body list-group text-center">
       <li class="product row list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
         <h3 class="page-header">{{ product.name }} <em class="small">{{ product.price | currency}}</em></h3>
-        <figure class="gallery" ng-if="product.images != []" ng-controller="GalleryController as gallery">
-          <img ng-src="images/{{ product.images[gallery.current] }}">
-          <div>
-            <img class="small-image" ng-src="images/{{ image }}" ng-repeat="image in product.images" ng-hide="$index == gallery.current" ng-click="gallery.setCurrent($index)">
-          </div>
-        </figure>
+        <product-gallery></product-gallery>
         <product-tabs></product-tabs>
         <button class="btn btn-success" type="button" ng-show="product.canPurchase">Add to Cart</button>
       </li>
