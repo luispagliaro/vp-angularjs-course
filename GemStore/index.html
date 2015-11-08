@@ -10,6 +10,7 @@
   <script src="scripts/controllers/TabController.js"></script>
   <script src="scripts/controllers/GalleryController.js"></script>
   <script src="scripts/controllers/ReviewController.js"></script>
+  <script src="scripts/directives/productDescription.js"></script>
   <link href="styles/bootstrap.min.css" rel="stylesheet">
   <link href="styles/style.css" rel="stylesheet">
 </head>
@@ -41,7 +42,9 @@
             </li>
           </ul>
           <div class="well">
-            <div ng-show="tab.isSet(1)" class="product-description" ng-include="'views/product-description.html'"></div>
+            <div ng-show="tab.isSet(1)" class="product-description">
+              <product-description></product-description>
+            </div>
             <div ng-show="tab.isSet(2)" class="product-specs">
               <ul class="list-inline row">
                 <li class="col-sm-3"><strong>Shine</strong>: {{ product.shine }}</li>
