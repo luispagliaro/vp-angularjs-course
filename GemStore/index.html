@@ -11,6 +11,7 @@
   <script src="scripts/controllers/GalleryController.js"></script>
   <script src="scripts/controllers/ReviewController.js"></script>
   <script src="scripts/directives/productDescription.js"></script>
+  <script src="scripts/directives/productSpecification.js"></script>
   <link href="styles/bootstrap.min.css" rel="stylesheet">
   <link href="styles/style.css" rel="stylesheet">
 </head>
@@ -45,14 +46,7 @@
             <div ng-show="tab.isSet(1)" class="product-description">
               <product-description></product-description>
             </div>
-            <div ng-show="tab.isSet(2)" class="product-specs">
-              <ul class="list-inline row">
-                <li class="col-sm-3"><strong>Shine</strong>: {{ product.shine }}</li>
-                <li class="col-sm-3"><strong>Rarity</strong>: {{ product.rarity }}</li>
-                <li class="col-sm-3"><strong>Color</strong>: <span ng-style="{color:'{{ product.color }}'}">{{ product.color }}</span></li>
-                <li class="col-sm-3"><strong>Faces</strong>: {{ product.faces }}</li>
-              </ul>
-            </div>
+            <div ng-show="tab.isSet(2)" class="product-specs" product-specification></div>
             <div ng-show="tab.isSet(3)" class="product-reviews">
               <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product) && reviewForm.$setPristine() && reviewForm.$setUntouched()" novalidate>
                 <fieldset>
