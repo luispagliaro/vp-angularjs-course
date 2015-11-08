@@ -1,9 +1,9 @@
 (function() {
   angular
     .module('gemStore')
-    .directive('productSpecification', ProductSpecification);
+    .directive('productSpecification', productSpecification);
 
-  function ProductSpecification() {
+  function productSpecification() {
   	return {
   		restrict: 'A',
   		templateUrl: 'views/product-specification.html'
