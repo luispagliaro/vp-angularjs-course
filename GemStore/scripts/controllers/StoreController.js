@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gemStore', ['storeDirectives', 'storeServices'])
+    .module('gemStore')
     .controller('StoreController', StoreController);
 
   StoreController.$inject = ['productService'];
