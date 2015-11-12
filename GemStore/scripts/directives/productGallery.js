@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gemStore')
+    .module('storeDirectives')
     .directive('productGallery', productGallery);
 
   function productGallery() {

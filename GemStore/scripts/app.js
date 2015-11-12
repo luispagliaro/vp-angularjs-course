@@ -3,4 +3,6 @@
 	
   angular
     .module('gemStore', []);
+  angular
+    .module('storeDirectives', []);
 })();
