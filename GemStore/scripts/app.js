@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gemStore', ['storeDirectives', 'storeServices']);
+    .module('gemStore', ['app-templates', 'storeDirectives', 'storeServices']);
   angular
     .module('storeDirectives', []);
   angular
